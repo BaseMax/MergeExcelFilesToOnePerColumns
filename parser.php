@@ -1,7 +1,7 @@
 <?php
 // Max Base
 // https://github.com/BaseMax/MergeExcelFilesToOnePerColumns
-// 2021-04-13
+// 2021-04-13, 2021-04-22
 
 require "excel.php";
 require "excel-create.php";
@@ -10,11 +10,18 @@ $authors = [];
 $counts = [];
 $data = [];
 
-$files = glob("*.xlsx");
+$prefix = "input-first/";
+$prefix = "input-second/";
+
+$files = glob($prefix . "*.xlsx");
 $files_count = 0;
+
+$count = 65;
+$count = 39;
+
 // foreach($files as $file) {
-for($i=1;$i<=65;$i++) {
-	$file = $i.".xlsx";
+for($i=1;$i<=$count;$i++) {
+	$file = $prefix . $i.".xlsx";
 	if($file === "" || $file === "." || $file === "..") {
 		continue;
 	}
